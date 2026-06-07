@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter --version)",
+      "Read(//usr/local/**)",
+      "Read(//home/m6108183/**)",
+      "Read(//opt/**)",
+      "Read(//mnt/c/**)",
+      "Bash(dart --version)"
+    ]
+  }
+}
