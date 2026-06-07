@@ -1,0 +1,78 @@
+[
+  {
+    "id": "a",
+    "letter": "A",
+    "letter_lower": "a",
+    "sound_description": "Like in 'apple'",
+    "audio_file": "assets/audio/en/letters/a.mp3",
+    "example_word": "apple",
+    "example_image": "assets/images/words/apple.png",
+    "example_audio": "assets/audio/en/words/apple.mp3",
+    "stroke_paths": [
+      "M 50 10 L 10 90",
+      "M 50 10 L 90 90",
+      "M 25 60 L 75 60"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "b",
+    "letter": "B",
+    "letter_lower": "b",
+    "sound_description": "Like in 'ball'",
+    "audio_file": "assets/audio/en/letters/b.mp3",
+    "example_word": "ball",
+    "example_image": "assets/images/words/ball.png",
+    "example_audio": "assets/audio/en/words/ball.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 70 10 70 30 Q 70 50 20 50",
+      "M 20 50 Q 75 50 75 70 Q 75 90 20 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "c",
+    "letter": "C",
+    "letter_lower": "c",
+    "sound_description": "Like in 'cat'",
+    "audio_file": "assets/audio/en/letters/c.mp3",
+    "example_word": "cat",
+    "example_image": "assets/images/words/cat.png",
+    "example_audio": "assets/audio/en/words/cat.mp3",
+    "stroke_paths": [
+      "M 80 20 Q 10 20 10 50 Q 10 80 80 80"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "d",
+    "letter": "D",
+    "letter_lower": "d",
+    "sound_description": "Like in 'dog'",
+    "audio_file": "assets/audio/en/letters/d.mp3",
+    "example_word": "dog",
+    "example_image": "assets/images/words/dog.png",
+    "example_audio": "assets/audio/en/words/dog.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 90 10 90 50 Q 90 90 20 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "e",
+    "letter": "E",
+    "letter_lower": "e",
+    "sound_description": "Like in 'egg'",
+    "audio_file": "assets/audio/en/letters/e.mp3",
+    "example_word": "egg",
+    "example_image": "assets/images/words/egg.png",
+    "example_audio": "assets/audio/en/words/egg.mp3",
+    "stroke_paths": [
+      "M 80 10 L 20 10 L 20 90 L 80 90",
+      "M 20 50 L 65 50"
+    ],
+    "tracing_difficulty": 2
+  }
+]

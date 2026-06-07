@@ -1,0 +1,57 @@
+name: doda
+description: DoDa - Bilingual Learning App for Kids (English + Kinyarwanda)
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Audio
+  audioplayers: ^5.2.1
+
+  # Local storage
+  shared_preferences: ^2.2.2
+
+  # State management
+  provider: ^6.1.1
+
+  # Animations
+  lottie: ^3.0.0
+
+  # Fonts
+  google_fonts: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/audio/en/letters/
+    - assets/audio/rw/letters/
+    - assets/audio/en/words/
+    - assets/audio/rw/words/
+    - assets/audio/rewards/
+    - assets/images/letters/
+    - assets/images/words/
+    - assets/images/mascot/
+    - assets/images/ui/
+    - assets/data/
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800

@@ -6,7 +6,9 @@
       "Read(//home/m6108183/**)",
       "Read(//opt/**)",
       "Read(//mnt/c/**)",
-      "Bash(dart --version)"
+      "Bash(dart --version)",
+      "Bash(cp -r /mnt/c/Herve/doda/lib/* /mnt/c/Herve/doda/flutter_application_1/lib/)",
+      "Bash(cp /mnt/c/Herve/doda/assets/data/*.json /mnt/c/Herve/doda/flutter_application_1/assets/data/)"
     ]
   }
 }

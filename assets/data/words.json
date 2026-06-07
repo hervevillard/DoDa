@@ -1,0 +1,90 @@
+[
+  {
+    "id": "apple",
+    "word_en": "apple",
+    "word_rw": "pome",
+    "image": "assets/images/words/apple.png",
+    "audio_en": "assets/audio/en/words/apple.mp3",
+    "audio_rw": "assets/audio/rw/words/pome.mp3",
+    "letters": ["a", "p", "p", "l", "e"],
+    "category": "food",
+    "difficulty": 1
+  },
+  {
+    "id": "water",
+    "word_en": "water",
+    "word_rw": "amazi",
+    "image": "assets/images/words/water.png",
+    "audio_en": "assets/audio/en/words/water.mp3",
+    "audio_rw": "assets/audio/rw/words/amazi.mp3",
+    "letters": ["w", "a", "t", "e", "r"],
+    "category": "nature",
+    "difficulty": 1
+  },
+  {
+    "id": "cat",
+    "word_en": "cat",
+    "word_rw": "injangwe",
+    "image": "assets/images/words/cat.png",
+    "audio_en": "assets/audio/en/words/cat.mp3",
+    "audio_rw": "assets/audio/rw/words/injangwe.mp3",
+    "letters": ["c", "a", "t"],
+    "category": "animals",
+    "difficulty": 1
+  },
+  {
+    "id": "dog",
+    "word_en": "dog",
+    "word_rw": "imbwa",
+    "image": "assets/images/words/dog.png",
+    "audio_en": "assets/audio/en/words/dog.mp3",
+    "audio_rw": "assets/audio/rw/words/imbwa.mp3",
+    "letters": ["d", "o", "g"],
+    "category": "animals",
+    "difficulty": 1
+  },
+  {
+    "id": "sun",
+    "word_en": "sun",
+    "word_rw": "izuba",
+    "image": "assets/images/words/sun.png",
+    "audio_en": "assets/audio/en/words/sun.mp3",
+    "audio_rw": "assets/audio/rw/words/izuba.mp3",
+    "letters": ["s", "u", "n"],
+    "category": "nature",
+    "difficulty": 1
+  },
+  {
+    "id": "ball",
+    "word_en": "ball",
+    "word_rw": "umupira",
+    "image": "assets/images/words/ball.png",
+    "audio_en": "assets/audio/en/words/ball.mp3",
+    "audio_rw": "assets/audio/rw/words/umupira.mp3",
+    "letters": ["b", "a", "l", "l"],
+    "category": "toys",
+    "difficulty": 1
+  },
+  {
+    "id": "tree",
+    "word_en": "tree",
+    "word_rw": "igiti",
+    "image": "assets/images/words/tree.png",
+    "audio_en": "assets/audio/en/words/tree.mp3",
+    "audio_rw": "assets/audio/rw/words/igiti.mp3",
+    "letters": ["t", "r", "e", "e"],
+    "category": "nature",
+    "difficulty": 2
+  },
+  {
+    "id": "house",
+    "word_en": "house",
+    "word_rw": "inzu",
+    "image": "assets/images/words/house.png",
+    "audio_en": "assets/audio/en/words/house.mp3",
+    "audio_rw": "assets/audio/rw/words/inzu.mp3",
+    "letters": ["h", "o", "u", "s", "e"],
+    "category": "places",
+    "difficulty": 2
+  }
+]

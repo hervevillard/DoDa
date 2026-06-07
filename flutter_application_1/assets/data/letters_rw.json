@@ -1,0 +1,74 @@
+[
+  {
+    "id": "a",
+    "letter": "A",
+    "letter_lower": "a",
+    "sound_description": "Nk'aho uvuga 'amazi'",
+    "audio_file": "assets/audio/rw/letters/a.mp3",
+    "example_word": "amazi",
+    "example_image": "assets/images/words/water.png",
+    "example_audio": "assets/audio/rw/words/amazi.mp3",
+    "stroke_paths": [
+      "M 50 10 L 10 90",
+      "M 50 10 L 90 90",
+      "M 25 60 L 75 60"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "b",
+    "letter": "B",
+    "letter_lower": "b",
+    "sound_description": "Nk'aho uvuga 'ibaba'",
+    "audio_file": "assets/audio/rw/letters/b.mp3",
+    "example_word": "ibaba",
+    "example_image": "assets/images/words/leaf.png",
+    "example_audio": "assets/audio/rw/words/ibaba.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 70 10 70 30 Q 70 50 20 50",
+      "M 20 50 Q 75 50 75 70 Q 75 90 20 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "c",
+    "letter": "C",
+    "letter_lower": "c",
+    "sound_description": "Nk'aho uvuga 'icyayi'",
+    "audio_file": "assets/audio/rw/letters/c.mp3",
+    "example_word": "icyayi",
+    "example_image": "assets/images/words/tea.png",
+    "example_audio": "assets/audio/rw/words/icyayi.mp3",
+    "stroke_paths": [
+      "M 80 20 Q 10 20 10 50 Q 10 80 80 80"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "cy",
+    "letter": "Cy",
+    "letter_lower": "cy",
+    "sound_description": "Nk'aho uvuga 'icyayi'",
+    "audio_file": "assets/audio/rw/letters/cy.mp3",
+    "example_word": "icyayi",
+    "example_image": "assets/images/words/tea.png",
+    "example_audio": "assets/audio/rw/words/icyayi.mp3",
+    "stroke_paths": [],
+    "tracing_difficulty": 3,
+    "is_cluster": true
+  },
+  {
+    "id": "ny",
+    "letter": "Ny",
+    "letter_lower": "ny",
+    "sound_description": "Nk'aho uvuga 'inyama'",
+    "audio_file": "assets/audio/rw/letters/ny.mp3",
+    "example_word": "inyama",
+    "example_image": "assets/images/words/meat.png",
+    "example_audio": "assets/audio/rw/words/inyama.mp3",
+    "stroke_paths": [],
+    "tracing_difficulty": 3,
+    "is_cluster": true
+  }
+]
