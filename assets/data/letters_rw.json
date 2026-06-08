@@ -70,5 +70,286 @@
     "stroke_paths": [],
     "tracing_difficulty": 3,
     "is_cluster": true
+  },
+  {
+    "id": "f",
+    "letter": "F",
+    "letter_lower": "f",
+    "sound_description": "Nk'aho uvuga 'ifunguro'",
+    "audio_file": "assets/audio/rw/letters/f.mp3",
+    "example_word": "ifunguro",
+    "example_image": "assets/images/words/food.png",
+    "example_audio": "assets/audio/rw/words/ifunguro.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 L 80 10",
+      "M 20 50 L 65 50"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "g",
+    "letter": "G",
+    "letter_lower": "g",
+    "sound_description": "Nk'aho uvuga 'igiti'",
+    "audio_file": "assets/audio/rw/letters/g.mp3",
+    "example_word": "igiti",
+    "example_image": "assets/images/words/tree.png",
+    "example_audio": "assets/audio/rw/words/igiti.mp3",
+    "stroke_paths": [
+      "M 80 20 Q 10 20 10 50 Q 10 80 80 80",
+      "M 80 50 L 80 80"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "h",
+    "letter": "H",
+    "letter_lower": "h",
+    "sound_description": "Nk'aho uvuga 'inzu'",
+    "audio_file": "assets/audio/rw/letters/h.mp3",
+    "example_word": "inzu",
+    "example_image": "assets/images/words/house.png",
+    "example_audio": "assets/audio/rw/words/inzu.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 80 10 L 80 90",
+      "M 20 50 L 80 50"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "i",
+    "letter": "I",
+    "letter_lower": "i",
+    "sound_description": "Nk'aho uvuga 'iminsi'",
+    "audio_file": "assets/audio/rw/letters/i.mp3",
+    "example_word": "iminsi",
+    "example_image": "assets/images/words/days.png",
+    "example_audio": "assets/audio/rw/words/iminsi.mp3",
+    "stroke_paths": [
+      "M 30 10 L 70 10",
+      "M 50 10 L 50 90",
+      "M 30 90 L 70 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "j",
+    "letter": "J",
+    "letter_lower": "j",
+    "sound_description": "Nk'aho uvuga 'ijoro'",
+    "audio_file": "assets/audio/rw/letters/j.mp3",
+    "example_word": "ijoro",
+    "example_image": "assets/images/words/night.png",
+    "example_audio": "assets/audio/rw/words/ijoro.mp3",
+    "stroke_paths": [
+      "M 30 10 L 70 10",
+      "M 65 10 L 65 70 Q 65 90 40 90 Q 20 90 20 70"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "k",
+    "letter": "K",
+    "letter_lower": "k",
+    "sound_description": "Nk'aho uvuga 'ikawa'",
+    "audio_file": "assets/audio/rw/letters/k.mp3",
+    "example_word": "ikawa",
+    "example_image": "assets/images/words/coffee.png",
+    "example_audio": "assets/audio/rw/words/ikawa.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 50 L 75 10",
+      "M 20 50 L 75 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "l",
+    "letter": "L",
+    "letter_lower": "l",
+    "sound_description": "Nk'aho uvuga 'inka'",
+    "audio_file": "assets/audio/rw/letters/l.mp3",
+    "example_word": "inzoka",
+    "example_image": "assets/images/words/snake.png",
+    "example_audio": "assets/audio/rw/words/inzoka.mp3",
+    "stroke_paths": [
+      "M 30 10 L 30 90 L 80 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "m",
+    "letter": "M",
+    "letter_lower": "m",
+    "sound_description": "Nk'aho uvuga 'amata'",
+    "audio_file": "assets/audio/rw/letters/m.mp3",
+    "example_word": "amata",
+    "example_image": "assets/images/words/milk.png",
+    "example_audio": "assets/audio/rw/words/amata.mp3",
+    "stroke_paths": [
+      "M 15 90 L 15 10 L 50 55 L 85 10 L 85 90"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "n",
+    "letter": "N",
+    "letter_lower": "n",
+    "sound_description": "Nk'aho uvuga 'inzoga'",
+    "audio_file": "assets/audio/rw/letters/n.mp3",
+    "example_word": "inzoga",
+    "example_image": "assets/images/words/drink.png",
+    "example_audio": "assets/audio/rw/words/inzoga.mp3",
+    "stroke_paths": [
+      "M 20 90 L 20 10 L 80 90 L 80 10"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "o",
+    "letter": "O",
+    "letter_lower": "o",
+    "sound_description": "Nk'aho uvuga 'inka'",
+    "audio_file": "assets/audio/rw/letters/o.mp3",
+    "example_word": "inka",
+    "example_image": "assets/images/words/cow.png",
+    "example_audio": "assets/audio/rw/words/inka.mp3",
+    "stroke_paths": [
+      "M 50 10 Q 90 10 90 50 Q 90 90 50 90 Q 10 90 10 50 Q 10 10 50 10"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "p",
+    "letter": "P",
+    "letter_lower": "p",
+    "sound_description": "Nk'aho uvuga 'impamba'",
+    "audio_file": "assets/audio/rw/letters/p.mp3",
+    "example_word": "impamba",
+    "example_image": "assets/images/words/cotton.png",
+    "example_audio": "assets/audio/rw/words/impamba.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 75 10 75 30 Q 75 50 20 50"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "r",
+    "letter": "R",
+    "letter_lower": "r",
+    "sound_description": "Nk'aho uvuga 'inzira'",
+    "audio_file": "assets/audio/rw/letters/r.mp3",
+    "example_word": "inzira",
+    "example_image": "assets/images/words/road.png",
+    "example_audio": "assets/audio/rw/words/inzira.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 75 10 75 30 Q 75 50 20 50",
+      "M 20 50 L 75 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "s",
+    "letter": "S",
+    "letter_lower": "s",
+    "sound_description": "Nk'aho uvuga 'isura'",
+    "audio_file": "assets/audio/rw/letters/s.mp3",
+    "example_word": "isura",
+    "example_image": "assets/images/words/face.png",
+    "example_audio": "assets/audio/rw/words/isura.mp3",
+    "stroke_paths": [
+      "M 75 20 Q 75 10 50 10 Q 10 10 10 30 Q 10 50 50 50 Q 90 50 90 70 Q 90 90 50 90 Q 25 90 25 80"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "t",
+    "letter": "T",
+    "letter_lower": "t",
+    "sound_description": "Nk'aho uvuga 'itabi'",
+    "audio_file": "assets/audio/rw/letters/t.mp3",
+    "example_word": "itabi",
+    "example_image": "assets/images/words/tobacco.png",
+    "example_audio": "assets/audio/rw/words/itabi.mp3",
+    "stroke_paths": [
+      "M 15 10 L 85 10",
+      "M 50 10 L 50 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "u",
+    "letter": "U",
+    "letter_lower": "u",
+    "sound_description": "Nk'aho uvuga 'umuryango'",
+    "audio_file": "assets/audio/rw/letters/u.mp3",
+    "example_word": "umuryango",
+    "example_image": "assets/images/words/family.png",
+    "example_audio": "assets/audio/rw/words/umuryango.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 70 Q 20 90 50 90 Q 80 90 80 70 L 80 10"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "v",
+    "letter": "V",
+    "letter_lower": "v",
+    "sound_description": "Nk'aho uvuga 'ivugurura'",
+    "audio_file": "assets/audio/rw/letters/v.mp3",
+    "example_word": "ivugurura",
+    "example_image": "assets/images/words/reform.png",
+    "example_audio": "assets/audio/rw/words/ivugurura.mp3",
+    "stroke_paths": [
+      "M 15 10 L 50 90 L 85 10"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "w",
+    "letter": "W",
+    "letter_lower": "w",
+    "sound_description": "Nk'aho uvuga 'amasaka'",
+    "audio_file": "assets/audio/rw/letters/w.mp3",
+    "example_word": "amasaka",
+    "example_image": "assets/images/words/sorghum.png",
+    "example_audio": "assets/audio/rw/words/amasaka.mp3",
+    "stroke_paths": [
+      "M 10 10 L 25 90 L 50 40 L 75 90 L 90 10"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "y",
+    "letter": "Y",
+    "letter_lower": "y",
+    "sound_description": "Nk'aho uvuga 'inyamaswa'",
+    "audio_file": "assets/audio/rw/letters/y.mp3",
+    "example_word": "inyamaswa",
+    "example_image": "assets/images/words/animal.png",
+    "example_audio": "assets/audio/rw/words/inyamaswa.mp3",
+    "stroke_paths": [
+      "M 15 10 L 50 55",
+      "M 85 10 L 50 55 L 50 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "z",
+    "letter": "Z",
+    "letter_lower": "z",
+    "sound_description": "Nk'aho uvuga 'inzoka'",
+    "audio_file": "assets/audio/rw/letters/z.mp3",
+    "example_word": "inzoka",
+    "example_image": "assets/images/words/snake.png",
+    "example_audio": "assets/audio/rw/words/inzoka.mp3",
+    "stroke_paths": [
+      "M 15 10 L 85 10 L 15 90 L 85 90"
+    ],
+    "tracing_difficulty": 2
   }
 ]

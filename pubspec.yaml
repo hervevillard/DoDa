@@ -9,8 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
 
   # Audio
   audioplayers: ^5.2.1
@@ -36,22 +34,17 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/audio/en/letters/
-    - assets/audio/rw/letters/
-    - assets/audio/en/words/
-    - assets/audio/rw/words/
-    - assets/audio/rewards/
-    - assets/images/letters/
-    - assets/images/words/
-    - assets/images/mascot/
-    - assets/images/ui/
+    # Data files (always present)
     - assets/data/
+    # Audio and image directories — uncomment as you add files
+    - assets/audio/en/letters/
+    # - assets/audio/rw/letters/
+    # - assets/audio/en/words/
+    # - assets/audio/rw/words/
+    # - assets/audio/rewards/
+    - assets/audio/en/numbers/
+    - assets/audio/background/
+    # - assets/images/words/
+    # - assets/images/ui/
 
-  fonts:
-    - family: Nunito
-      fonts:
-        - asset: assets/fonts/Nunito-Regular.ttf
-        - asset: assets/fonts/Nunito-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Nunito-ExtraBold.ttf
-          weight: 800
+  # Fonts served via google_fonts package (no local ttf files needed)

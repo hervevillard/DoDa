@@ -4,7 +4,7 @@
     "letter": "A",
     "letter_lower": "a",
     "sound_description": "Like in 'apple'",
-    "audio_file": "assets/audio/en/letters/a.mp3",
+    "audio_file": "assets/audio/en/letters/A.wav",
     "example_word": "apple",
     "example_image": "assets/images/words/apple.png",
     "example_audio": "assets/audio/en/words/apple.mp3",
@@ -20,7 +20,7 @@
     "letter": "B",
     "letter_lower": "b",
     "sound_description": "Like in 'ball'",
-    "audio_file": "assets/audio/en/letters/b.mp3",
+    "audio_file": "assets/audio/en/letters/B.wav",
     "example_word": "ball",
     "example_image": "assets/images/words/ball.png",
     "example_audio": "assets/audio/en/words/ball.mp3",
@@ -36,7 +36,7 @@
     "letter": "C",
     "letter_lower": "c",
     "sound_description": "Like in 'cat'",
-    "audio_file": "assets/audio/en/letters/c.mp3",
+    "audio_file": "assets/audio/en/letters/C.wav",
     "example_word": "cat",
     "example_image": "assets/images/words/cat.png",
     "example_audio": "assets/audio/en/words/cat.mp3",
@@ -50,7 +50,7 @@
     "letter": "D",
     "letter_lower": "d",
     "sound_description": "Like in 'dog'",
-    "audio_file": "assets/audio/en/letters/d.mp3",
+    "audio_file": "assets/audio/en/letters/D.wav",
     "example_word": "dog",
     "example_image": "assets/images/words/dog.png",
     "example_audio": "assets/audio/en/words/dog.mp3",
@@ -65,13 +65,324 @@
     "letter": "E",
     "letter_lower": "e",
     "sound_description": "Like in 'egg'",
-    "audio_file": "assets/audio/en/letters/e.mp3",
+    "audio_file": "assets/audio/en/letters/E.wav",
     "example_word": "egg",
     "example_image": "assets/images/words/egg.png",
     "example_audio": "assets/audio/en/words/egg.mp3",
     "stroke_paths": [
       "M 80 10 L 20 10 L 20 90 L 80 90",
       "M 20 50 L 65 50"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "f",
+    "letter": "F",
+    "letter_lower": "f",
+    "sound_description": "Like in 'fish'",
+    "audio_file": "assets/audio/en/letters/F.wav",
+    "example_word": "fish",
+    "example_image": "assets/images/words/fish.png",
+    "example_audio": "assets/audio/en/words/fish.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 L 80 10",
+      "M 20 50 L 65 50"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "g",
+    "letter": "G",
+    "letter_lower": "g",
+    "sound_description": "Like in 'goat'",
+    "audio_file": "assets/audio/en/letters/G.wav",
+    "example_word": "goat",
+    "example_image": "assets/images/words/goat.png",
+    "example_audio": "assets/audio/en/words/goat.mp3",
+    "stroke_paths": [
+      "M 80 20 Q 10 20 10 50 Q 10 80 80 80",
+      "M 80 50 L 80 80"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "h",
+    "letter": "H",
+    "letter_lower": "h",
+    "sound_description": "Like in 'hat'",
+    "audio_file": "assets/audio/en/letters/H.wav",
+    "example_word": "hat",
+    "example_image": "assets/images/words/hat.png",
+    "example_audio": "assets/audio/en/words/hat.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 80 10 L 80 90",
+      "M 20 50 L 80 50"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "i",
+    "letter": "I",
+    "letter_lower": "i",
+    "sound_description": "Like in 'igloo'",
+    "audio_file": "assets/audio/en/letters/I.wav",
+    "example_word": "igloo",
+    "example_image": "assets/images/words/igloo.png",
+    "example_audio": "assets/audio/en/words/igloo.mp3",
+    "stroke_paths": [
+      "M 30 10 L 70 10",
+      "M 50 10 L 50 90",
+      "M 30 90 L 70 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "j",
+    "letter": "J",
+    "letter_lower": "j",
+    "sound_description": "Like in 'jar'",
+    "audio_file": "assets/audio/en/letters/J.wav",
+    "example_word": "jar",
+    "example_image": "assets/images/words/jar.png",
+    "example_audio": "assets/audio/en/words/jar.mp3",
+    "stroke_paths": [
+      "M 30 10 L 70 10",
+      "M 65 10 L 65 70 Q 65 90 40 90 Q 20 90 20 70"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "k",
+    "letter": "K",
+    "letter_lower": "k",
+    "sound_description": "Like in 'kite'",
+    "audio_file": "assets/audio/en/letters/K.wav",
+    "example_word": "kite",
+    "example_image": "assets/images/words/kite.png",
+    "example_audio": "assets/audio/en/words/kite.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 50 L 75 10",
+      "M 20 50 L 75 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "l",
+    "letter": "L",
+    "letter_lower": "l",
+    "sound_description": "Like in 'lion'",
+    "audio_file": "assets/audio/en/letters/L.wav",
+    "example_word": "lion",
+    "example_image": "assets/images/words/lion.png",
+    "example_audio": "assets/audio/en/words/lion.mp3",
+    "stroke_paths": [
+      "M 30 10 L 30 90 L 80 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "m",
+    "letter": "M",
+    "letter_lower": "m",
+    "sound_description": "Like in 'moon'",
+    "audio_file": "assets/audio/en/letters/M.wav",
+    "example_word": "moon",
+    "example_image": "assets/images/words/moon.png",
+    "example_audio": "assets/audio/en/words/moon.mp3",
+    "stroke_paths": [
+      "M 15 90 L 15 10 L 50 55 L 85 10 L 85 90"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "n",
+    "letter": "N",
+    "letter_lower": "n",
+    "sound_description": "Like in 'nest'",
+    "audio_file": "assets/audio/en/letters/N.wav",
+    "example_word": "nest",
+    "example_image": "assets/images/words/nest.png",
+    "example_audio": "assets/audio/en/words/nest.mp3",
+    "stroke_paths": [
+      "M 20 90 L 20 10 L 80 90 L 80 10"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "o",
+    "letter": "O",
+    "letter_lower": "o",
+    "sound_description": "Like in 'owl'",
+    "audio_file": "assets/audio/en/letters/O.wav",
+    "example_word": "owl",
+    "example_image": "assets/images/words/owl.png",
+    "example_audio": "assets/audio/en/words/owl.mp3",
+    "stroke_paths": [
+      "M 50 10 Q 90 10 90 50 Q 90 90 50 90 Q 10 90 10 50 Q 10 10 50 10"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "p",
+    "letter": "P",
+    "letter_lower": "p",
+    "sound_description": "Like in 'parrot'",
+    "audio_file": "assets/audio/en/letters/P.wav",
+    "example_word": "parrot",
+    "example_image": "assets/images/words/parrot.png",
+    "example_audio": "assets/audio/en/words/parrot.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 75 10 75 30 Q 75 50 20 50"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "q",
+    "letter": "Q",
+    "letter_lower": "q",
+    "sound_description": "Like in 'queen'",
+    "audio_file": "assets/audio/en/letters/Q.wav",
+    "example_word": "queen",
+    "example_image": "assets/images/words/queen.png",
+    "example_audio": "assets/audio/en/words/queen.mp3",
+    "stroke_paths": [
+      "M 50 10 Q 90 10 90 50 Q 90 90 50 90 Q 10 90 10 50 Q 10 10 50 10",
+      "M 60 65 L 85 90"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "r",
+    "letter": "R",
+    "letter_lower": "r",
+    "sound_description": "Like in 'rabbit'",
+    "audio_file": "assets/audio/en/letters/R.wav",
+    "example_word": "rabbit",
+    "example_image": "assets/images/words/rabbit.png",
+    "example_audio": "assets/audio/en/words/rabbit.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 90",
+      "M 20 10 Q 75 10 75 30 Q 75 50 20 50",
+      "M 20 50 L 75 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "s",
+    "letter": "S",
+    "letter_lower": "s",
+    "sound_description": "Like in 'snake'",
+    "audio_file": "assets/audio/en/letters/S.wav",
+    "example_word": "snake",
+    "example_image": "assets/images/words/snake.png",
+    "example_audio": "assets/audio/en/words/snake.mp3",
+    "stroke_paths": [
+      "M 75 20 Q 75 10 50 10 Q 10 10 10 30 Q 10 50 50 50 Q 90 50 90 70 Q 90 90 50 90 Q 25 90 25 80"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "t",
+    "letter": "T",
+    "letter_lower": "t",
+    "sound_description": "Like in 'tiger'",
+    "audio_file": "assets/audio/en/letters/T.wav",
+    "example_word": "tiger",
+    "example_image": "assets/images/words/tiger.png",
+    "example_audio": "assets/audio/en/words/tiger.mp3",
+    "stroke_paths": [
+      "M 15 10 L 85 10",
+      "M 50 10 L 50 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "u",
+    "letter": "U",
+    "letter_lower": "u",
+    "sound_description": "Like in 'umbrella'",
+    "audio_file": "assets/audio/en/letters/U.wav",
+    "example_word": "umbrella",
+    "example_image": "assets/images/words/umbrella.png",
+    "example_audio": "assets/audio/en/words/umbrella.mp3",
+    "stroke_paths": [
+      "M 20 10 L 20 70 Q 20 90 50 90 Q 80 90 80 70 L 80 10"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "v",
+    "letter": "V",
+    "letter_lower": "v",
+    "sound_description": "Like in 'violin'",
+    "audio_file": "assets/audio/en/letters/V.wav",
+    "example_word": "violin",
+    "example_image": "assets/images/words/violin.png",
+    "example_audio": "assets/audio/en/words/violin.mp3",
+    "stroke_paths": [
+      "M 15 10 L 50 90 L 85 10"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "w",
+    "letter": "W",
+    "letter_lower": "w",
+    "sound_description": "Like in 'water'",
+    "audio_file": "assets/audio/en/letters/W.wav",
+    "example_word": "water",
+    "example_image": "assets/images/words/water.png",
+    "example_audio": "assets/audio/en/words/water.mp3",
+    "stroke_paths": [
+      "M 10 10 L 25 90 L 50 40 L 75 90 L 90 10"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "x",
+    "letter": "X",
+    "letter_lower": "x",
+    "sound_description": "Like in 'xylophone'",
+    "audio_file": "assets/audio/en/letters/X.wav",
+    "example_word": "xylophone",
+    "example_image": "assets/images/words/xylophone.png",
+    "example_audio": "assets/audio/en/words/xylophone.mp3",
+    "stroke_paths": [
+      "M 15 10 L 85 90",
+      "M 85 10 L 15 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "y",
+    "letter": "Y",
+    "letter_lower": "y",
+    "sound_description": "Like in 'yak'",
+    "audio_file": "assets/audio/en/letters/Y.wav",
+    "example_word": "yak",
+    "example_image": "assets/images/words/yak.png",
+    "example_audio": "assets/audio/en/words/yak.mp3",
+    "stroke_paths": [
+      "M 15 10 L 50 55",
+      "M 85 10 L 50 55 L 50 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "z",
+    "letter": "Z",
+    "letter_lower": "z",
+    "sound_description": "Like in 'zebra'",
+    "audio_file": "assets/audio/en/letters/Z.wav",
+    "example_word": "zebra",
+    "example_image": "assets/images/words/zebra.png",
+    "example_audio": "assets/audio/en/words/zebra.mp3",
+    "stroke_paths": [
+      "M 15 10 L 85 10 L 15 90 L 85 90"
     ],
     "tracing_difficulty": 2
   }

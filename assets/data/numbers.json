@@ -1,0 +1,150 @@
+[
+  {
+    "id": "0",
+    "letter": "0",
+    "letter_lower": "0",
+    "sound_description": "Zero",
+    "audio_file": "assets/audio/en/numbers/0.wav",
+    "example_word": "zero",
+    "example_image": "assets/images/words/zero.png",
+    "example_audio": "assets/audio/en/numbers/0.wav",
+    "stroke_paths": [
+      "M 50 10 Q 85 10 85 50 Q 85 90 50 90 Q 15 90 15 50 Q 15 10 50 10"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "1",
+    "letter": "1",
+    "letter_lower": "1",
+    "sound_description": "One",
+    "audio_file": "assets/audio/en/numbers/1.wav",
+    "example_word": "one",
+    "example_image": "assets/images/words/one.png",
+    "example_audio": "assets/audio/en/numbers/1.wav",
+    "stroke_paths": [
+      "M 35 25 L 50 10",
+      "M 50 10 L 50 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "2",
+    "letter": "2",
+    "letter_lower": "2",
+    "sound_description": "Two",
+    "audio_file": "assets/audio/en/numbers/2.wav",
+    "example_word": "two",
+    "example_image": "assets/images/words/two.png",
+    "example_audio": "assets/audio/en/numbers/2.wav",
+    "stroke_paths": [
+      "M 20 25 Q 20 10 50 10 Q 80 10 80 30 Q 80 50 20 90",
+      "M 20 90 L 80 90"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "3",
+    "letter": "3",
+    "letter_lower": "3",
+    "sound_description": "Three",
+    "audio_file": "assets/audio/en/numbers/3.wav",
+    "example_word": "three",
+    "example_image": "assets/images/words/three.png",
+    "example_audio": "assets/audio/en/numbers/3.wav",
+    "stroke_paths": [
+      "M 20 10 L 80 10 L 50 50",
+      "M 50 50 Q 85 50 85 70 Q 85 90 50 90 Q 20 90 20 75"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "4",
+    "letter": "4",
+    "letter_lower": "4",
+    "sound_description": "Four",
+    "audio_file": "assets/audio/en/numbers/4.wav",
+    "example_word": "four",
+    "example_image": "assets/images/words/four.png",
+    "example_audio": "assets/audio/en/numbers/4.wav",
+    "stroke_paths": [
+      "M 65 90 L 65 10",
+      "M 65 10 L 15 60",
+      "M 15 60 L 85 60"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "5",
+    "letter": "5",
+    "letter_lower": "5",
+    "sound_description": "Five",
+    "audio_file": "assets/audio/en/numbers/5.wav",
+    "example_word": "five",
+    "example_image": "assets/images/words/five.png",
+    "example_audio": "assets/audio/en/numbers/5.wav",
+    "stroke_paths": [
+      "M 75 10 L 20 10",
+      "M 20 10 L 20 48",
+      "M 20 48 Q 20 48 50 48 Q 80 48 80 70 Q 80 90 50 90 Q 22 90 20 75"
+    ],
+    "tracing_difficulty": 2
+  },
+  {
+    "id": "6",
+    "letter": "6",
+    "letter_lower": "6",
+    "sound_description": "Six",
+    "audio_file": "assets/audio/en/numbers/6.wav",
+    "example_word": "six",
+    "example_image": "assets/images/words/six.png",
+    "example_audio": "assets/audio/en/numbers/6.wav",
+    "stroke_paths": [
+      "M 75 15 Q 50 5 25 30 Q 10 50 15 70 Q 20 90 50 90 Q 80 90 80 68 Q 80 48 50 48 Q 20 48 18 68"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "7",
+    "letter": "7",
+    "letter_lower": "7",
+    "sound_description": "Seven",
+    "audio_file": "assets/audio/en/numbers/7.wav",
+    "example_word": "seven",
+    "example_image": "assets/images/words/seven.png",
+    "example_audio": "assets/audio/en/numbers/7.wav",
+    "stroke_paths": [
+      "M 15 10 L 80 10",
+      "M 80 10 L 35 90"
+    ],
+    "tracing_difficulty": 1
+  },
+  {
+    "id": "8",
+    "letter": "8",
+    "letter_lower": "8",
+    "sound_description": "Eight",
+    "audio_file": "assets/audio/en/numbers/8.wav",
+    "example_word": "eight",
+    "example_image": "assets/images/words/eight.png",
+    "example_audio": "assets/audio/en/numbers/8.wav",
+    "stroke_paths": [
+      "M 50 50 Q 80 50 80 30 Q 80 10 50 10 Q 20 10 20 30 Q 20 50 50 50 Q 85 50 85 72 Q 85 92 50 92 Q 15 92 15 72 Q 15 50 50 50"
+    ],
+    "tracing_difficulty": 3
+  },
+  {
+    "id": "9",
+    "letter": "9",
+    "letter_lower": "9",
+    "sound_description": "Nine",
+    "audio_file": "assets/audio/en/numbers/9.wav",
+    "example_word": "nine",
+    "example_image": "assets/images/words/nine.png",
+    "example_audio": "assets/audio/en/numbers/9.wav",
+    "stroke_paths": [
+      "M 50 48 Q 80 48 80 28 Q 80 8 50 8 Q 20 8 20 28 Q 20 48 50 48 Q 82 48 82 70 Q 78 90 50 90 Q 25 90 22 75"
+    ],
+    "tracing_difficulty": 3
+  }
+]

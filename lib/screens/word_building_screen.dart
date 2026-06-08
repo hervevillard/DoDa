@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../core/language_provider.dart';
 import '../core/progress_manager.dart';
@@ -8,6 +9,7 @@ import '../models/word_model.dart';
 import '../theme.dart';
 import '../widgets/mascot.dart';
 import '../widgets/reward_overlay.dart';
+import '../widgets/african_decoration.dart';
 
 class WordBuildingScreen extends StatefulWidget {
   final String levelId;
@@ -51,8 +53,7 @@ class _WordBuildingScreenState extends State<WordBuildingScreen> {
     });
     Future.delayed(const Duration(milliseconds: 300), () {
       final lang = context.read<LanguageProvider>();
-      final audio = context.read<DodaAudioPlayer>();
-      audio.playAsset(word.audioFor(lang.languageCode));
+      context.read<DodaAudioPlayer>().playAsset(word.audioFor(lang.languageCode));
     });
   }
 
@@ -85,9 +86,10 @@ class _WordBuildingScreenState extends State<WordBuildingScreen> {
     } else {
       context.read<DodaAudioPlayer>().playEncouragement();
       Future.delayed(const Duration(milliseconds: 800), () {
+        final w = _words[_currentWordIndex];
         setState(() {
-          _slots = List.filled(word.letters.length, null);
-          _shuffledLetters = List.from(word.letters)..shuffle();
+          _slots = List.filled(w.letters.length, null);
+          _shuffledLetters = List.from(w.letters)..shuffle();
         });
       });
     }
@@ -107,7 +109,10 @@ class _WordBuildingScreenState extends State<WordBuildingScreen> {
     final progress = context.read<ProgressManager>();
     final stars = _score >= 5 ? 3 : _score >= 3 ? 2 : 1;
     await progress.completeLevel(widget.levelId, stars);
-    if (mounted) Navigator.pop(context);
+    if (mounted) {
+      context.read<DodaAudioPlayer>().playSuccess();
+      Navigator.pop(context);
+    }
   }
 
   @override
@@ -115,145 +120,165 @@ class _WordBuildingScreenState extends State<WordBuildingScreen> {
     final lang = context.watch<LanguageProvider>();
 
     if (_loading || _words.isEmpty) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return Scaffold(
+        body: ParchmentBackground(
+          child: const Center(
+              child: CircularProgressIndicator(color: kColorPrimary)),
+        ),
+      );
     }
 
     final word = _words[_currentWordIndex];
     final displayWord = lang.isEnglish ? word.wordEn : word.wordRw;
 
     return Scaffold(
-      body: Container(
-        color: kColorBackground,
+      body: ParchmentBackground(
         child: SafeArea(
           child: Stack(
             children: [
-              Column(
+              Row(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back_ios_new),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                        Expanded(
-                          child: Text(
-                            lang.localizedText(
-                              en: 'Build the word!',
-                              rw: 'Injiza amagambo!',
-                            ),
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.titleLarge,
-                          ),
-                        ),
-                        Text('${_currentWordIndex + 1}/${_words.length}'),
-                      ],
-                    ),
+                  // ── Left panel: image + audio + mascot ───────────────────
+                  _WordLeftPanel(
+                    word: word,
+                    wordIndex: _currentWordIndex,
+                    total: _words.length,
+                    score: _score,
+                    lang: lang,
+                    onBack: () => Navigator.pop(context),
+                    onPlayAudio: () {
+                      context
+                          .read<DodaAudioPlayer>()
+                          .playAsset(word.audioFor(lang.languageCode));
+                    },
                   ),
 
-                  // Word image + audio
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: kColorSecondary.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Icon(Icons.image, size: 60, color: kColorSecondary),
-                      ),
-                      const SizedBox(width: 20),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  // Divider
+                  Container(
+                    width: 2,
+                    color: kColorSand,
+                    margin: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+
+                  // ── Right panel: slots + tiles ────────────────────────────
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
+                      child: Column(
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              context.read<DodaAudioPlayer>().playAsset(
-                                    word.audioFor(lang.languageCode));
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                color: kColorPrimary.withOpacity(0.15),
-                                borderRadius: BorderRadius.circular(16),
+                          // Giant word display — as large as possible so kids can see it
+                          SizedBox(
+                            height: 80,
+                            child: FittedBox(
+                              fit: BoxFit.contain,
+                              child: Text(
+                                displayWord.toUpperCase(),
+                                style: GoogleFonts.nunito(
+                                  fontSize: 120,
+                                  fontWeight: FontWeight.w900,
+                                  color: kColorPrimary,
+                                  letterSpacing: 8,
+                                  shadows: [
+                                    Shadow(
+                                      color: kColorEarth.withOpacity(0.25),
+                                      blurRadius: 6,
+                                      offset: const Offset(2, 3),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: const Icon(Icons.volume_up, color: kColorPrimary, size: 32),
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          const Mascot(size: 60, expression: MascotExpression.curious),
+                          const SizedBox(height: 6),
+                          const KenteDivider(height: 6),
+                          const Spacer(),
+
+                          // Letter slots
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(_slots.length, (i) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: DragTarget<String>(
+                                  onAcceptWithDetails: (d) =>
+                                      _onLetterPlaced(d.data, i),
+                                  builder: (context, candidates, _) {
+                                    final highlight = candidates.isNotEmpty;
+                                    return GestureDetector(
+                                      onTap: () => _onLetterRemoved(i),
+                                      child: AnimatedContainer(
+                                        duration:
+                                            const Duration(milliseconds: 150),
+                                        width: 62,
+                                        height: 74,
+                                        decoration: BoxDecoration(
+                                          color: highlight
+                                              ? kColorAccent.withOpacity(0.35)
+                                              : (_slots[i] != null
+                                                  ? kColorSecondary
+                                                      .withOpacity(0.15)
+                                                  : Colors.white),
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          border: Border.all(
+                                            color: highlight
+                                                ? kColorAccent
+                                                : _slots[i] != null
+                                                    ? kColorSecondary
+                                                    : kColorSand,
+                                            width: 2.5,
+                                          ),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color:
+                                                  Colors.black.withOpacity(0.06),
+                                              blurRadius: 6,
+                                              offset: const Offset(0, 3),
+                                            )
+                                          ],
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            _slots[i]?.toUpperCase() ?? '',
+                                            style: GoogleFonts.nunito(
+                                              fontSize: 34,
+                                              fontWeight: FontWeight.w900,
+                                              color: kColorText,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            }),
+                          ),
+
+                          const SizedBox(height: 28),
+
+                          // Draggable letter tiles
+                          Wrap(
+                            spacing: 10,
+                            runSpacing: 10,
+                            alignment: WrapAlignment.center,
+                            children: _shuffledLetters.map((letter) {
+                              return Draggable<String>(
+                                data: letter,
+                                feedback:
+                                    _LetterTile(letter: letter, state: _TileState.dragging),
+                                childWhenDragging:
+                                    _LetterTile(letter: letter, state: _TileState.ghost),
+                                child: _LetterTile(letter: letter),
+                              );
+                            }).toList(),
+                          ),
+
+                          const Spacer(),
                         ],
                       ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 32),
-
-                  // Letter slots
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(_slots.length, (i) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 6),
-                        child: DragTarget<String>(
-                          onAcceptWithDetails: (details) =>
-                              _onLetterPlaced(details.data, i),
-                          builder: (context, candidateData, rejectedData) {
-                            final isHighlighted = candidateData.isNotEmpty;
-                            return GestureDetector(
-                              onTap: () => _onLetterRemoved(i),
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 150),
-                                width: 60,
-                                height: 70,
-                                decoration: BoxDecoration(
-                                  color: isHighlighted
-                                      ? kColorAccent.withOpacity(0.4)
-                                      : (_slots[i] != null
-                                          ? kColorSecondary.withOpacity(0.2)
-                                          : Colors.white),
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(
-                                    color: isHighlighted ? kColorAccent : kColorTextLight.withOpacity(0.3),
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    _slots[i]?.toUpperCase() ?? '',
-                                    style: const TextStyle(
-                                      fontSize: 32,
-                                      fontWeight: FontWeight.w800,
-                                      color: kColorText,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    }),
-                  ),
-
-                  const SizedBox(height: 40),
-
-                  // Draggable letter tiles
-                  Wrap(
-                    spacing: 12,
-                    runSpacing: 12,
-                    alignment: WrapAlignment.center,
-                    children: _shuffledLetters.map((letter) {
-                      return Draggable<String>(
-                        data: letter,
-                        feedback: _LetterTile(letter: letter, isDragging: true),
-                        childWhenDragging: _LetterTile(letter: letter, isDragging: true, ghost: true),
-                        child: _LetterTile(letter: letter),
-                      );
-                    }).toList(),
+                    ),
                   ),
                 ],
               ),
@@ -273,38 +298,225 @@ class _WordBuildingScreenState extends State<WordBuildingScreen> {
   }
 }
 
-class _LetterTile extends StatelessWidget {
-  final String letter;
-  final bool isDragging;
-  final bool ghost;
+// ── Left panel ────────────────────────────────────────────────────────────────
 
-  const _LetterTile({
-    required this.letter,
-    this.isDragging = false,
-    this.ghost = false,
+class _WordLeftPanel extends StatelessWidget {
+  final WordModel word;
+  final int wordIndex;
+  final int total;
+  final int score;
+  final LanguageProvider lang;
+  final VoidCallback onBack;
+  final VoidCallback onPlayAudio;
+
+  const _WordLeftPanel({
+    required this.word,
+    required this.wordIndex,
+    required this.total,
+    required this.score,
+    required this.lang,
+    required this.onBack,
+    required this.onPlayAudio,
   });
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      width: 210,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            kColorPrimary.withOpacity(0.12),
+            kColorAccent.withOpacity(0.08),
+          ],
+        ),
+        border: Border(right: BorderSide(color: kColorSand, width: 2)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: onBack,
+                  child: Container(
+                    padding: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: kColorPrimary.withOpacity(0.12),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Icon(Icons.arrow_back_ios_new,
+                        size: 20, color: kColorPrimary),
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  '${wordIndex + 1}/$total',
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: kColorTextLight,
+                  ),
+                ),
+              ],
+            ),
+
+            const Spacer(),
+
+            // Word image placeholder
+            Container(
+              width: 130,
+              height: 130,
+              decoration: BoxDecoration(
+                color: kColorAccent.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: kColorAccent.withOpacity(0.5), width: 2),
+              ),
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.image_rounded, size: 56, color: kColorEarth),
+                  Text(
+                    'Image',
+                    style: TextStyle(
+                      color: kColorTextLight,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            const Mascot(size: 70, expression: MascotExpression.curious),
+
+            const SizedBox(height: 10),
+
+            // Score stars
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(total, (i) {
+                return Icon(
+                  i < score ? Icons.star_rounded : Icons.star_border_rounded,
+                  color: i < score ? kColorStar : kColorLocked,
+                  size: 18,
+                );
+              }),
+            ),
+
+            const SizedBox(height: 12),
+
+            // Audio button
+            GestureDetector(
+              onTap: onPlayAudio,
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                decoration: BoxDecoration(
+                  color: kColorPrimary.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                      color: kColorPrimary.withOpacity(0.4), width: 1.5),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Icon(Icons.volume_up_rounded, color: kColorPrimary, size: 24),
+                    SizedBox(width: 6),
+                    Text('Listen',
+                        style: TextStyle(
+                            color: kColorPrimary,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 13)),
+                  ],
+                ),
+              ),
+            ),
+
+            const Spacer(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ── Letter tile ───────────────────────────────────────────────────────────────
+
+enum _TileState { normal, dragging, ghost }
+
+// Kente-inspired rotating tile colors
+const _kTileColors = [
+  kColorKente3, // gold
+  kColorKente2, // green
+  kColorKente1, // red
+  kColorAccent,
+];
+
+class _LetterTile extends StatelessWidget {
+  final String letter;
+  final _TileState state;
+
+  const _LetterTile({required this.letter, this.state = _TileState.normal});
+
+  @override
+  Widget build(BuildContext context) {
+    final colorIdx = letter.codeUnitAt(0) % _kTileColors.length;
+    final baseColor = _kTileColors[colorIdx];
+
+    final Color bg;
+    final Color text;
+    switch (state) {
+      case _TileState.dragging:
+        bg = kColorPrimary;
+        text = Colors.white;
+      case _TileState.ghost:
+        bg = baseColor.withOpacity(0.25);
+        text = kColorText.withOpacity(0.3);
+      case _TileState.normal:
+        bg = baseColor;
+        text = kColorText;
+    }
+
     return Opacity(
-      opacity: ghost ? 0.3 : 1.0,
+      opacity: state == _TileState.ghost ? 0.35 : 1.0,
       child: Container(
-        width: 60,
-        height: 70,
+        width: 62,
+        height: 72,
         decoration: BoxDecoration(
-          color: isDragging && !ghost ? kColorPrimary : kColorAccent,
+          color: bg,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: isDragging && !ghost
-              ? [BoxShadow(color: Colors.black26, blurRadius: 12, offset: const Offset(0, 6))]
-              : [BoxShadow(color: Colors.black12, blurRadius: 4, offset: const Offset(0, 2))],
+          boxShadow: state == _TileState.dragging
+              ? [
+                  const BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 14,
+                      offset: Offset(0, 7))
+                ]
+              : [
+                  const BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 4,
+                      offset: Offset(0, 2))
+                ],
+          border: Border.all(
+            color: state == _TileState.normal
+                ? Colors.white.withOpacity(0.4)
+                : Colors.transparent,
+            width: 2,
+          ),
         ),
         child: Center(
           child: Text(
             letter.toUpperCase(),
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.w800,
-              color: isDragging && !ghost ? Colors.white : kColorText,
+            style: GoogleFonts.nunito(
+              fontSize: 34,
+              fontWeight: FontWeight.w900,
+              color: text,
             ),
           ),
         ),

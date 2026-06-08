@@ -8,7 +8,22 @@
       "Read(//mnt/c/**)",
       "Bash(dart --version)",
       "Bash(cp -r /mnt/c/Herve/doda/lib/* /mnt/c/Herve/doda/flutter_application_1/lib/)",
-      "Bash(cp /mnt/c/Herve/doda/assets/data/*.json /mnt/c/Herve/doda/flutter_application_1/assets/data/)"
+      "Bash(cp /mnt/c/Herve/doda/assets/data/*.json /mnt/c/Herve/doda/flutter_application_1/assets/data/)",
+      "Bash(flutter analyze *)",
+      "Bash(cp -r /mnt/c/Herve/doda/flutter_application_1/windows /mnt/c/Herve/doda/windows)",
+      "Bash(cp -r /mnt/c/Herve/doda/flutter_application_1/web /mnt/c/Herve/doda/web)",
+      "Bash(cp -r /mnt/c/Herve/doda/flutter_application_1/ios /mnt/c/Herve/doda/ios)",
+      "Bash(cp -r /mnt/c/Herve/doda/flutter_application_1/linux /mnt/c/Herve/doda/linux)",
+      "Bash(cp -r /mnt/c/Herve/doda/flutter_application_1/macos /mnt/c/Herve/doda/macos)",
+      "Bash(/mnt/c/Herve/flutter/bin/flutter analyze *)",
+      "Bash(flutter pub *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(len\\(d\\)\\); print\\(d[0].keys\\(\\) if d else 'empty'\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(len\\(d\\)\\)\")",
+      "Bash(~/.local/bin/flutter analyze *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(x['letter']\\) for x in d]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d[0], indent=2\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(len\\(d\\)\\); [print\\(x['word_en']\\) for x in d]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(x['id'],x['letter']\\) for x in d]\")"
     ]
   }
 }

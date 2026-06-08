@@ -39,7 +39,36 @@ class DodaApp extends StatelessWidget {
       title: 'DoDa',
       debugShowCheckedModeBanner: false,
       theme: dodaTheme,
-      home: const HomeScreen(),
+      home: _AudioUnlockWrapper(child: const HomeScreen()),
+    );
+  }
+}
+
+// Unlocks the audio player on the first user tap (required by browser autoplay policy).
+class _AudioUnlockWrapper extends StatefulWidget {
+  final Widget child;
+  const _AudioUnlockWrapper({required this.child});
+
+  @override
+  State<_AudioUnlockWrapper> createState() => _AudioUnlockWrapperState();
+}
+
+class _AudioUnlockWrapperState extends State<_AudioUnlockWrapper> {
+  bool _unlocked = false;
+
+  void _unlock() {
+    if (_unlocked) return;
+    _unlocked = true;
+    context.read<DodaAudioPlayer>().unlock();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: _unlock,
+      onPanDown: (_) => _unlock(),
+      child: widget.child,
     );
   }
 }

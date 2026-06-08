@@ -6,6 +6,7 @@ import '../models/word_model.dart';
 class ContentLoader {
   static List<LetterModel>? _lettersEn;
   static List<LetterModel>? _lettersRw;
+  static List<LetterModel>? _numbers;
   static List<WordModel>? _words;
 
   static Future<List<LetterModel>> loadLetters(String languageCode) async {
@@ -16,6 +17,11 @@ class ContentLoader {
       _lettersRw ??= await _loadLettersFromAsset('assets/data/letters_rw.json');
       return _lettersRw!;
     }
+  }
+
+  static Future<List<LetterModel>> loadNumbers() async {
+    _numbers ??= await _loadLettersFromAsset('assets/data/numbers.json');
+    return _numbers!;
   }
 
   static Future<List<WordModel>> loadWords() async {
