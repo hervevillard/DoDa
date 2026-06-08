@@ -94,3 +94,20 @@ Kotlin incremental compilation is disabled for the Android build.
 `DodaAudioPlayer` silently swallows missing asset errors so the app runs without any audio files present.
 
 **Why:** Placeholder stubs exist in `assets/audio/` but real recordings haven't been produced yet.
+
+---
+
+## Flutter built-in Kotlin + NDK strip fallback (2026-06-08)
+Android build now uses Flutter's built-in Kotlin/new DSL flags and an explicit NDK pin, plus a JNI packaging fallback to avoid `bundleRelease` failures when debug symbols cannot be stripped.
+
+**Why:**
+- Flutter warns that future versions will fail when plugins apply legacy Kotlin Gradle Plugin behavior unless built-in Kotlin mode is enabled.
+- Some Windows Android toolchain setups fail while stripping `.so` debug symbols during `flutter build appbundle --release`.
+
+**Where it lives:**
+- `android/gradle.properties`: `android.newDsl=true`, `android.builtInKotlin=true`.
+- `android/app/build.gradle.kts`: `ndkVersion = "27.0.12077973"` and `android.packaging.jniLibs.keepDebugSymbols += "**/*.so"`.
+
+**Impact:**
+- Keeps release AAB generation unblocked even when local strip tooling fails.
+- AAB size may increase because JNI debug symbols are retained. This is acceptable as a stability-first workaround and can be tightened to specific libraries later.
