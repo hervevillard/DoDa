@@ -98,14 +98,15 @@ Kotlin incremental compilation is disabled for the Android build.
 ---
 
 ## Flutter built-in Kotlin + NDK strip fallback (2026-06-08)
-Android build now uses Flutter's built-in Kotlin/new DSL flags and an explicit NDK pin, plus a JNI packaging fallback to avoid `bundleRelease` failures when debug symbols cannot be stripped.
+Android build now uses Flutter's built-in Kotlin flag, an explicit NDK pin, and a JNI packaging fallback to avoid `bundleRelease` failures when debug symbols cannot be stripped.
 
 **Why:**
 - Flutter warns that future versions will fail when plugins apply legacy Kotlin Gradle Plugin behavior unless built-in Kotlin mode is enabled.
 - Some Windows Android toolchain setups fail while stripping `.so` debug symbols during `flutter build appbundle --release`.
+- With Flutter 3.44.1 and AGP 9.x, enabling `android.newDsl=true` can crash Flutter Gradle plugin application with a NullPointerException. Opting out avoids this failure.
 
 **Where it lives:**
-- `android/gradle.properties`: `android.newDsl=true`, `android.builtInKotlin=true`.
+- `android/gradle.properties`: `android.newDsl=false`, `android.builtInKotlin=true`.
 - `android/app/build.gradle.kts`: `ndkVersion = "27.0.12077973"` and `android.packaging.jniLibs.keepDebugSymbols += "**/*.so"`.
 
 **Impact:**
