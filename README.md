@@ -1,17 +1,36 @@
-# flutter_application_1
+# DoDa — Kids Learning App
 
-A new Flutter project.
+![DoDa Logo](assets/images/ui/logo.png)
+
+A Flutter app for kids to learn letters and numbers, targeting Android and iOS tablets.
+
+## Features
+
+- Letter and number tracing activities
+- Audio pronunciation support
+- Progress tracking
+- African-themed design with Material 3
+- Landscape-only layout optimized for tablets
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+```bash
+flutter pub get
+flutter run -d <device>
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Platform
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Android (minSdk 21)
+- iOS
+- Landscape orientation only
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Package
+
+`org.longhornshield.doda`
+
+## License
+
+Copyright (c) 2026 Hervé Habonimana. All rights reserved.
+Redistribution or use without the owner's prior written permission is strictly prohibited.
+See [LICENSE](LICENSE) for details.

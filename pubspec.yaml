@@ -22,6 +22,9 @@ dependencies:
   # Animations
   lottie: ^3.0.0
 
+  # SVG rendering
+  flutter_svg: ^2.0.0
+
   # Fonts
   google_fonts: ^6.1.0
 
@@ -29,6 +32,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
@@ -41,10 +45,16 @@ flutter:
     # - assets/audio/rw/letters/
     # - assets/audio/en/words/
     # - assets/audio/rw/words/
-    # - assets/audio/rewards/
+    - assets/audio/rewards/
     - assets/audio/en/numbers/
     - assets/audio/background/
     # - assets/images/words/
-    # - assets/images/ui/
+    - assets/images/ui/
 
   # Fonts served via google_fonts package (no local ttf files needed)
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/ui/logo.png"
+  min_sdk_android: 21

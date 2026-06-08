@@ -47,6 +47,7 @@ class _TracingCanvasState extends State<TracingCanvas>
   bool _completed = false;
   Color _penColor = kTracingColors[0];
   Offset? _cursorPos;
+  double _cursorAngle = -math.pi / 4;
   bool _isDrawing = false;
 
   // Visual animations
@@ -215,6 +216,10 @@ class _TracingCanvasState extends State<TracingCanvas>
     if (_completed || _mode != _TracingMode.practicing) return;
     final pos = _localPos(d.globalPosition);
     setState(() {
+      if (_cursorPos != null) {
+        final delta = pos - _cursorPos!;
+        if (delta.distance > 2) _cursorAngle = math.atan2(delta.dy, delta.dx);
+      }
       _cursorPos = pos;
       _currentStroke.add(pos);
     });
@@ -349,6 +354,7 @@ class _TracingCanvasState extends State<TracingCanvas>
                         glowValue: _glowController.value,
                         pulseValue: _pulseController.value,
                         cursorPos: _cursorPos,
+                        cursorAngle: _cursorAngle,
                         isDrawing: _isDrawing,
                         completed: _completed,
                       ),
@@ -520,6 +526,7 @@ class _TracingPainter extends CustomPainter {
   final double glowValue;
   final double pulseValue;
   final Offset? cursorPos;
+  final double cursorAngle;
   final bool isDrawing;
   final bool completed;
 
@@ -536,6 +543,7 @@ class _TracingPainter extends CustomPainter {
     required this.glowValue,
     required this.pulseValue,
     required this.cursorPos,
+    required this.cursorAngle,
     required this.isDrawing,
     required this.completed,
   });
@@ -848,12 +856,13 @@ class _TracingPainter extends CustomPainter {
   // ── Cursor ────────────────────────────────────────────────────────────────────
 
   void _drawCursor(Canvas canvas, Offset pos) {
-    canvas.drawCircle(pos, 26,
-        Paint()
-          ..color = penColor.withOpacity(0.25)
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 2);
-    canvas.drawCircle(pos, 5, Paint()..color = penColor);
+    // Shift the pencil centre so the graphite tip lands on the touch point.
+    // _drawPencil draws the tip at local (0,-28) after rotate(angle+pi/2),
+    // so in world space the tip offset = (-28*cos(a), 28*sin(a)) where a=angle.
+    // We invert that to back-calculate the draw origin from the touch pos.
+    final a = cursorAngle;
+    final centre = pos - Offset(-28 * math.cos(a), 28 * math.sin(a));
+    _drawPencil(canvas, centre, a);
   }
 
   // ── Pulsing start hint ────────────────────────────────────────────────────────
@@ -932,6 +941,7 @@ class _TracingPainter extends CustomPainter {
       old.glowValue != glowValue ||
       old.pulseValue != pulseValue ||
       old.cursorPos != cursorPos ||
+      old.cursorAngle != cursorAngle ||
       old.completed != completed ||
       old.penColor != penColor;
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../core/audio_player.dart';
 import '../core/language_provider.dart';
 import '../core/progress_manager.dart';
 import '../theme.dart';
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lang = context.watch<LanguageProvider>();
+    final audio = context.watch<DodaAudioPlayer>();
 
     return Scaffold(
       body: Container(
@@ -38,6 +40,14 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     const StarCounter(),
                     const LanguageToggle(),
+                    IconButton(
+                      icon: Icon(
+                        audio.isMuted ? Icons.volume_off_rounded : Icons.volume_up_rounded,
+                        size: 32,
+                        color: audio.isMuted ? kColorTextLight.withOpacity(0.4) : kColorTextLight,
+                      ),
+                      onPressed: audio.toggleMute,
+                    ),
                     IconButton(
                       icon: const Icon(Icons.lock, size: 32, color: kColorTextLight),
                       onPressed: () => Navigator.push(

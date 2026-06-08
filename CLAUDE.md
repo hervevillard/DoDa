@@ -1,31 +1,22 @@
 # DoDa — Claude Code Project Guide
 
 ## What is DoDa?
-Bilingual kids learning app (English + Kinyarwanda) targeting Android/iOS tablets.
-Built with Flutter, landscape-only, Material 3.
+Kids learning app targeting Android/iOS tablets. Flutter, landscape-only, Material 3.
+**Current focus: English only.** Kinyarwanda support is planned but not active in learning screens.
 
-## Architecture
-```
-lib/
-  core/            — providers & services (language, progress, audio, content)
-  models/          — data classes (LetterModel, WordModel)
-  screens/         — 6 screens (home, progress_map, letter_tracing, phonics, word_building, parent)
-  widgets/         — reusable UI (mascot, tracing_canvas, reward_overlay, african_decoration)
-  theme.dart       — all colours & typography (African palette)
-assets/
-  data/            — letters_en.json, letters_rw.json, words.json
-  audio/           — placeholder .mp3 files (need recording)
-  images/          — placeholder images (need artwork)
-  fonts/           — Nunito (Regular / Bold / ExtraBold)
-docs/              — design & planning documents
-.claude/commands/  — project slash commands
-```
+## Documentation — read before working
+- `docs/ARCHITECTURE.md` — folder structure, screens, widgets, providers, navigation
+- `docs/DECISIONS.md` — non-obvious decisions with rationale (read this before changing anything)
+- `docs/TRACING_PLAN.md` — letter/number tracing roadmap and stroke path format
+
+## Documentation rule
+After every code change, update the relevant `docs/` file and this file if needed.
+Keep `CLAUDE.md` short — detail lives in `docs/`.
 
 ## Key conventions
 - All colours live in `lib/theme.dart` — use `kColor*` constants, never hard-code hex.
 - African decoration widgets live in `lib/widgets/african_decoration.dart`.
-- Every activity screen uses `ParchmentBackground` from `african_decoration.dart`.
-- The progress map uses `AfricanBackground` (savanna gradient).
+- Every activity screen uses `ParchmentBackground`; progress map uses `AfricanBackground`.
 - Landscape only — always test in landscape viewport.
 - State management: Provider only (no Riverpod, no Bloc).
 - Audio files are optional — `DodaAudioPlayer` silently skips missing assets.
@@ -33,27 +24,16 @@ docs/              — design & planning documents
 ## Running the app
 ```bash
 flutter pub get
-flutter run -d <device>          # or use /run skill
+flutter run -d <device>   # or use /run skill
 ```
 
-## Tracing canvas notes
-- Guide paths stored as SVG-subset strings in `assets/data/letters_en.json` (`stroke_paths` array).
-- Coordinate space: 0–100 grid, scaled to canvas at paint time.
-- Supported commands: M, L, Q (quadratic Bézier), C (cubic Bézier).
-- One stroke per array item. Active stroke shown with pulsing start circle + numbered badge.
-- Color picker lets the child pick a pen colour before tracing.
-- Cursor overlay shows finger position with crosshair.
-- Accuracy = fraction of guide points within 28px of user stroke.
+## Slash commands
+- `/run`    — start the app on a connected device
+- `/check`  — run `flutter analyze` and `flutter test`
+- `/assets` — list all asset files and flag missing ones
 
-## Asset placeholders
-- Audio: empty .mp3 stubs — drop real recordings into `assets/audio/`.
-- Images: `Icon(Icons.image_rounded)` shown until real PNGs added to `assets/images/words/`.
-- Fonts: download Nunito from Google Fonts into `assets/fonts/`.
-
-## Slash commands available
-- `/run`   — start the app on a connected device
-- `/check` — run `flutter analyze` and `flutter test`
-- `/assets`— list all asset files and flag missing ones
+## Package name
+`org.longhornshield.doda` — Android applicationId and iOS/macOS bundle identifier. See `DECISIONS.md` for affected files.
 
 ## Parent PIN
-Hard-coded to `1234`. Change in `lib/screens/parent_screen.dart`.
+Hard-coded to `1234` in `lib/screens/parent_screen.dart`.

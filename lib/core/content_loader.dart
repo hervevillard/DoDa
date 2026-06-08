@@ -9,14 +9,10 @@ class ContentLoader {
   static List<LetterModel>? _numbers;
   static List<WordModel>? _words;
 
+  // Always loads English — bilingual letter tracing not yet supported.
   static Future<List<LetterModel>> loadLetters(String languageCode) async {
-    if (languageCode == 'en') {
-      _lettersEn ??= await _loadLettersFromAsset('assets/data/letters_en.json');
-      return _lettersEn!;
-    } else {
-      _lettersRw ??= await _loadLettersFromAsset('assets/data/letters_rw.json');
-      return _lettersRw!;
-    }
+    _lettersEn ??= await _loadLettersFromAsset('assets/data/letters_en.json');
+    return _lettersEn!;
   }
 
   static Future<List<LetterModel>> loadNumbers() async {

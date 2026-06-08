@@ -2,11 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 const _bgTracks = [
-  'audio/background/Felt Pockets.mp3',
   'audio/background/Learn Loop.mp3',
 ];
 
-class DodaAudioPlayer {
+class DodaAudioPlayer extends ChangeNotifier {
   final AudioPlayer _sfxPlayer = AudioPlayer();
   final AudioPlayer _bgPlayer = AudioPlayer();
 
@@ -32,13 +31,14 @@ class DodaAudioPlayer {
   void _playNextTrack() async {
     if (_isMuted) return;
     try {
+      await _bgPlayer.setVolume(0.2);
       await _bgPlayer.play(AssetSource(_bgTracks[_bgIndex]));
       _bgIndex = (_bgIndex + 1) % _bgTracks.length;
     } catch (_) {}
   }
 
   Future<void> playAsset(String assetPath) async {
-    if (_isMuted || !_unlocked) return;
+    if (!_unlocked) return;
     try {
       await _sfxPlayer.stop();
       await _sfxPlayer.play(AssetSource(assetPath.replaceFirst('assets/', '')));
@@ -57,15 +57,28 @@ class DodaAudioPlayer {
     await playAsset('assets/audio/rewards/encouragement.mp3');
   }
 
+  Future<void> pauseBackground() async {
+    try {
+      await _bgPlayer.pause();
+    } catch (_) {}
+  }
+
+  Future<void> resumeBackground() async {
+    if (_isMuted) return;
+    try {
+      await _bgPlayer.resume();
+    } catch (_) {}
+  }
+
   void toggleMute() {
     _isMuted = !_isMuted;
     if (_isMuted) {
-      _sfxPlayer.stop();
       _bgPlayer.stop();
     } else if (_unlocked) {
       _bgStarted = false;
       _startBackground();
     }
+    notifyListeners();
   }
 
   void dispose() {

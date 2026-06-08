@@ -23,7 +23,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider.value(value: progressManager),
-        Provider(create: (_) => DodaAudioPlayer()),
+        ChangeNotifierProvider(create: (_) => DodaAudioPlayer()),
       ],
       child: const DodaApp(),
     ),

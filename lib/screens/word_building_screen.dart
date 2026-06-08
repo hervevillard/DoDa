@@ -270,7 +270,13 @@ class _WordBuildingScreenState extends State<WordBuildingScreen> {
                                     _LetterTile(letter: letter, state: _TileState.dragging),
                                 childWhenDragging:
                                     _LetterTile(letter: letter, state: _TileState.ghost),
-                                child: _LetterTile(letter: letter),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    context.read<DodaAudioPlayer>().playAsset(
+                                        'assets/audio/en/letters/${letter.toUpperCase()}.wav');
+                                  },
+                                  child: _LetterTile(letter: letter),
+                                ),
                               );
                             }).toList(),
                           ),
