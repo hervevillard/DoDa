@@ -32,7 +32,8 @@
       "WebSearch",
       "WebFetch(domain:pub.dev)",
       "WebFetch(domain:packages.ecosyste.ms)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.gradle.org)"
     ]
   }
 }
