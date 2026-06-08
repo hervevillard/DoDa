@@ -97,18 +97,21 @@ Kotlin incremental compilation is disabled for the Android build.
 
 ---
 
-## Flutter built-in Kotlin + NDK strip fallback (2026-06-08)
-Android build now uses Flutter's built-in Kotlin flag, an explicit NDK pin, and a JNI packaging fallback to avoid `bundleRelease` failures when debug symbols cannot be stripped.
+## Android toolchain versions (2026-06-08)
+Gradle, AGP, Kotlin, and NDK are pinned to explicit versions required by Flutter and plugin dependencies.
 
 **Why:**
-- Flutter warns that future versions will fail when plugins apply legacy Kotlin Gradle Plugin behavior unless built-in Kotlin mode is enabled.
-- Some Windows Android toolchain setups fail while stripping `.so` debug symbols during `flutter build appbundle --release`.
-- With Flutter 3.44.1 and AGP 9.x, enabling `android.newDsl=true` can crash Flutter Gradle plugin application with a NullPointerException. Opting out avoids this failure.
+- Flutter will drop support for Gradle < 8.14.0, AGP < 8.11.1, and Kotlin < 2.2.20 in a future release.
+- The `jni` plugin requires NDK 28.2.13676358; using an older NDK caused `bundleRelease` to fail with a "failed to strip debug symbols" error (NDK version mismatch between app and plugin).
+- `audioplayers_android` still applies the legacy Kotlin Gradle Plugin directly — a known upstream issue awaiting a plugin release; the warning is informational only and does not block builds.
 
 **Where it lives:**
-- `android/gradle.properties`: `android.newDsl=false`, `android.builtInKotlin=true`.
-- `android/app/build.gradle.kts`: `ndkVersion = "27.0.12077973"` and `android.packaging.jniLibs.keepDebugSymbols += "**/*.so"`.
+- `android/gradle/wrapper/gradle-wrapper.properties`: `gradle-8.14.0-all.zip`
+- `android/settings.gradle.kts`: AGP `8.11.1`, Kotlin `2.2.20`
+- `android/app/build.gradle.kts`: `ndkVersion = "28.2.13676358"`, `jniLibs.keepDebugSymbols += "**/*.so"` (strip fallback)
+- `android/gradle.properties`: `kotlin.incremental=false` (see separate entry), `android.newDsl=false`, `android.builtInKotlin=true`
 
 **Impact:**
-- Keeps release AAB generation unblocked even when local strip tooling fails.
-- AAB size may increase because JNI debug symbols are retained. This is acceptable as a stability-first workaround and can be tightened to specific libraries later.
+- Eliminates all Flutter deprecation warnings for Gradle/AGP/Kotlin versions.
+- Fixes the NDK strip failure so `flutter build appbundle --release` completes.
+- AAB size may be slightly larger due to retained JNI debug symbols; acceptable as a stability-first workaround.
