@@ -28,7 +28,8 @@
       "Bash(xargs ls -1)",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(i.get\\('filename','\\(missing\\)'\\), i.get\\('size',''\\), i.get\\('scale',''\\)\\) for i in d['images']]\")",
       "Bash(python3 -c ' *)",
-      "Bash(identify /mnt/c/Herve/doda/assets/images/ui/logo.png)"
+      "Bash(identify /mnt/c/Herve/doda/assets/images/ui/logo.png)",
+      "WebSearch"
     ]
   }
 }

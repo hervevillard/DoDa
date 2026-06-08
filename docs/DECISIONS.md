@@ -79,6 +79,17 @@ Stroke paths are authored in a normalised 0–100 space, not in pixels.
 
 ---
 
+## kotlin.incremental=false in android/gradle.properties (2026-06-07)
+Kotlin incremental compilation is disabled for the Android build.
+
+**Why:** The project lives on `D:\` while the Pub cache is on `C:\`. The Kotlin incremental compiler cannot compute relative paths between files on different drives (Windows-only bug), causing a hard build failure (`IllegalArgumentException: this and base files have different roots`). Disabling incremental compilation avoids the cross-drive path calculation entirely.
+
+**Impact:** All Kotlin files recompile on every build. Adds roughly 10–30 seconds to Android build times. No effect on the app itself. The correct long-term fix is to move the project or set `PUB_CACHE` to the same drive, but this workaround is safe to keep permanently.
+
+**Where it lives:** `android/gradle.properties`.
+
+---
+
 ## Audio files optional
 `DodaAudioPlayer` silently swallows missing asset errors so the app runs without any audio files present.
 
