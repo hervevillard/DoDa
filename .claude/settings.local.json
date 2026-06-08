@@ -30,7 +30,9 @@
       "Bash(python3 -c ' *)",
       "Bash(identify /mnt/c/Herve/doda/assets/images/ui/logo.png)",
       "WebSearch",
-      "WebFetch(domain:pub.dev)"
+      "WebFetch(domain:pub.dev)",
+      "WebFetch(domain:packages.ecosyste.ms)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }
