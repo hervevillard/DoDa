@@ -115,3 +115,15 @@ Gradle, AGP, Kotlin, and NDK are pinned to explicit versions required by Flutter
 - Eliminates all Flutter deprecation warnings for Gradle/AGP/Kotlin versions.
 - Fixes the NDK strip failure so `flutter build appbundle --release` completes.
 - AAB size may be slightly larger due to retained JNI debug symbols; acceptable as a stability-first workaround.
+
+## Release signing (2026-06-09)
+Release builds are signed with a real upload keystore loaded from `android/key.properties`, not the debug key.
+
+**Why:** Google Play rejects debug-signed bundles. The Flutter template shipped `release { signingConfig = signingConfigs.getByName("debug") }`, which produced an unpublishable `.aab`.
+
+**Where it lives:**
+- `android/app/build.gradle.kts`: loads `key.properties` at the top, defines a `release` `signingConfig`, and the `release` build type uses it when `key.properties` exists (falls back to debug signing otherwise, so `flutter run --release` still works without the keystore).
+- `android/key.properties` (git-ignored): `storePassword`, `keyPassword`, `keyAlias`, `storeFile`. Created per-machine; never committed.
+- The upload keystore (`*.jks`) lives outside the repo and must be backed up — losing it means no future Play Store updates.
+
+**Impact:** `flutter build appbundle --release` on a machine with `key.properties` produces a Play-uploadable, properly signed bundle.
